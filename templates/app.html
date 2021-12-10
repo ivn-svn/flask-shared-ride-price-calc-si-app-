@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shared Ride Calculator by Svetlin I.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+
+    <style>
+      .alert {
+        background: #99af6e;
+        padding: 1rem;
+        border-radius: 5px;
+        color: white;
+        margin: 1rem;
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body style="background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,0.865983893557423) 29%, rgba(237,255,200,1) 100%); padding-top: 100px">
+<div id="google_translate_element"></div>
+<script type="text/javascript">// <![CDATA[
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'bg', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+// ]]>
+function setCookie(key, value, expiry) {
+  var expires = new Date();
+  expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
+  document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+}
+function googleTranslateElementInit() {
+    setCookie('googtrans', '/en/bg',1);
+    new google.translate.TranslateElement({
+       pageLanguage: 'en'
+    }, 'google_translate_element');
+}
+
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+
+      <div class="container">
+        <h3>Shared ride price calculator</h3>
+      </div>
+
+      <!-- Form -->
+      <div class="container">
+        <form action="/send" method="POST">
+          <label for="Number One">KM to go</label>
+          <input
+            type="text"
+            placeholder="How many kilometers of travel are you planning?"
+            class="u-full-width"
+            name="num1"
+          />
+
+          <label for="Number Two">Price per Liter in Leva</label>
+          <input
+            type="text"
+            placeholder="What is the current price per liter for the needed fuel?"
+            class="u-full-width"
+            name="num2"
+          />
+
+          <label for="Operation">Available cars</label>
+          <select class="u-full-width" name="operation">
+            <option value="w124">Mercedes W124 | 1991</option>
+            <option value="C1998">Toyota Corrola | 1998</option>
+            <option value="C2006">Toyota Corrola | 2006</option>
+            <option value="VW2002">VW Golf IV Diesel | 2002</option>
+          </select>
+          <label for="People">People Traveling</label>
+          <input
+            type="text"
+            placeholder="How many people are taking the ride?"
+            class="u-full-width"
+            name="num3"
+          />
+          <input type="submit" value="Calculate" id="calc_btn" />
+          <br />
+          <div class="alert">
+            {{ sum }}
+          </div>
+        </form>
+       </div>
+      </div>
+
+  </body>
+</html>
